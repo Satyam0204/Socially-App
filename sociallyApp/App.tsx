@@ -9,16 +9,22 @@ import React from 'react';
 
 import {
   View,
-  Text
+  Text,
+  SafeAreaView
 } from 'react-native';
+import Navbar from './src/components/Navbar';
+import HomeScreen from './src/screens/HomeScreen';
 
 
 function App(): JSX.Element {
 
 
   return (
-    <View>
-      <Text>hello</Text>
+    <View style={
+      { flex:1,
+        backgroundColor:'white'}
+    }>
+      <HomeScreen/>
     </View>
   )
 }
