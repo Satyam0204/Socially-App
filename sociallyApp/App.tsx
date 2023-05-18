@@ -13,7 +13,10 @@ import {
   SafeAreaView
 } from 'react-native';
 import Navbar from './src/components/Navbar';
-import HomeScreen from './src/screens/HomeScreen';
+
+import Header from './src/components/Header';
+import { NavigationContainer } from '@react-navigation/native';
+
 
 
 function App(): JSX.Element {
@@ -24,7 +27,10 @@ function App(): JSX.Element {
       { flex:1,
         backgroundColor:'white'}
     }>
-      <HomeScreen/>
+        <NavigationContainer>
+          <Header />
+          <Navbar/>
+      </NavigationContainer>
     </View>
   )
 }

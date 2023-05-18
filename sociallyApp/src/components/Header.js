@@ -9,8 +9,9 @@ const Header = () => {
       <Image style={styles.logo} source={require('../Assets/Logo.png')}/>
      </TouchableOpacity>
      <View>
-
+     <TouchableOpacity>
       <Image style={styles.headerEnd} source={require('../Assets/notification.png')}/>
+      </TouchableOpacity>
      </View>
     </View>
   )
@@ -21,24 +22,28 @@ const styles = StyleSheet.create({
     justifyContent:'space-between',
     alignItems:'center',
     
-    backgroundColor:"#fadeff",
+    backgroundColor:"#561dab",
+    borderWidth:3,
     borderColor:'#7c15d6',
     borderRadius:10,
     flexDirection:'row',
     
     margin:7,
-    padding:10
+    padding:10,
+    elevation:1,
+    
 
   },
 
     logo:{
       margin:10,
       height:50,
-      width:120
+      width:120,
     },
     headerEnd:{
+      marginHorizontal:10,
       
-      height:25,
+      height:32,
 
     }
 })
