@@ -1,8 +1,14 @@
 import { View, Text ,StyleSheet, Image, TouchableOpacity} from 'react-native'
 import React from 'react'
+import LinearGradient from 'react-native-linear-gradient'
+
 
 const Header = () => {
   return (
+    
+    <View style={{backgroundColor:"#151129"}}>
+
+
     <View style={styles.container}>
      <TouchableOpacity>
 
@@ -14,6 +20,9 @@ const Header = () => {
       </TouchableOpacity>
      </View>
     </View>
+      
+    </View>
+   
   )
 }
 const styles = StyleSheet.create({
@@ -21,22 +30,21 @@ const styles = StyleSheet.create({
     
     justifyContent:'space-between',
     alignItems:'center',
-    
-    backgroundColor:"#561dab",
-    borderWidth:3,
-    borderColor:'#7c15d6',
+    margin:20,
+
+   
     borderRadius:10,
     flexDirection:'row',
     
-    margin:7,
+    height:40,
     padding:10,
-    elevation:1,
+
     
 
   },
 
     logo:{
-      margin:10,
+      // margin:10,
       height:50,
       width:120,
     },
