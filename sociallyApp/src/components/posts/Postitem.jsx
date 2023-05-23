@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
   postHeaderText: {
     color: '#f97b7b',
     margin: 10,
-    fontWeight: 1,
+
     fontSize: 20,
   },
 

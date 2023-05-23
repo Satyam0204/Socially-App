@@ -1,3 +1,5 @@
+import 'react-native-gesture-handler';
+
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
@@ -5,7 +7,7 @@
  * @format
  */
 
-import React from 'react';
+import React,{useContext} from 'react';
 
 import {
   View,
@@ -13,11 +15,14 @@ import {
   SafeAreaView,
   StyleSheet
 } from 'react-native';
-import Navbar from './src/components/Navbar';
+
 
 import Header from './src/components/Header';
 import { NavigationContainer } from '@react-navigation/native';
-import LinearGradient from 'react-native-linear-gradient'
+import { AuthProvider } from './src/context/AuthContext';
+import MyStack from './src/components/Navigation/StackNavigator';
+
+
 
 
 
@@ -25,13 +30,16 @@ function App(): JSX.Element {
 
 
   return (
+    <AuthProvider>
+
     <View style={styles.app}>
         <NavigationContainer>
-          <Header />
-          <Navbar/>
+          <MyStack/>
+          
       </NavigationContainer>
     
     </View>
+    </AuthProvider>
   )
 }
 

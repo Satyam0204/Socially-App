@@ -15,6 +15,7 @@ public class MainActivity extends ReactActivity {
   protected String getMainComponentName() {
     return "sociallyApp";
   }
+  
 
   /**
    * Returns the instance of the {@link ReactActivityDelegate}. Here we use a util class {@link

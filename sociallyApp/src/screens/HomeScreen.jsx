@@ -2,11 +2,14 @@ import { View, Text, ScrollView,SafeAreaView,StyleSheet } from 'react-native'
 import React from 'react'
 import PostItemList from '../components/posts/PostItemList'
 import LinearGradient from 'react-native-linear-gradient'
+import Header from '../components/Header'
 
 
 const HomeScreen = () => {
   return (
+
     <SafeAreaView  >
+      <Header/>
       <LinearGradient
       colors={['#151129', '#2e2033']}
       >
