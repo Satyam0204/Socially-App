@@ -30,8 +30,8 @@ function App(): JSX.Element {
 
 
   return (
+    
     <AuthProvider>
-
     <View style={styles.app}>
         <NavigationContainer>
           <MyStack/>

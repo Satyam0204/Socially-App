@@ -1,9 +1,22 @@
-import React from 'react';
+import React,{useState,useContext,useEffect} from 'react';
 import {View, StyleSheet, TouchableOpacity, TextInput} from 'react-native';
 import { Text } from 'react-native-paper';
+import AuthContext from '../context/AuthContext';
 
 
 const Login = ({navigation}) => {
+    let {loginuser}=useContext(AuthContext)
+    let {user}=useContext(AuthContext)
+    const [username, setUsername] = useState(null);
+    const [password, setPassword] = useState(null);
+
+    useEffect(() => {
+        if(user!=null){
+            navigation.navigate('Navbar')
+        }
+        
+    }, [user]);
+    
     return (
         <View style={{
         justifyContent:"center",
@@ -13,12 +26,22 @@ const Login = ({navigation}) => {
             </Text>
 
             <View>
-                <TextInput placeholder='Username' placeholderTextColor="black" style={styles.inputfield}/>
-                <TextInput placeholder='Password' placeholderTextColor="black"  style={styles.inputfield} secureTextEntry={true}/>
+                <TextInput placeholder='Username' placeholderTextColor="black" style={styles.inputfield} value={username}
+                        onChangeText={(username) => {
+                            setUsername(username)
+                        }}/>
+                <TextInput placeholder='Password' placeholderTextColor="black"  style={styles.inputfield} secureTextEntry={true} value={password}
+                    onChangeText={(password)=>{
+                        setPassword(password)
+                    }}
+                />
                 
             </View>
             <TouchableOpacity
-            onPress={()=>{navigation.navigate('Navbar')}}
+            onPress={()=>{
+                loginuser(username,password)
+
+            }}
             >
                 <Text
                 style={{
