@@ -1,6 +1,7 @@
 import { View, Text } from 'react-native'
 import React,{useState,useEffect, createContext} from 'react'
 import jwtDecode from "jwt-decode";
+import {BASE_URL} from "@env"
 
 
 const AuthContext=createContext()
@@ -15,10 +16,10 @@ export const AuthProvider=({children})=>{
     let loginuser=async (username,password)=>{
         
 
+        console.log(BASE_URL)
         try {
             // console.log("username: "+username+" password: "+password)
-            
-            let response=await fetch("https://9fed-2405-201-9002-c914-6bbb-5228-2ffe-ac60.ngrok-free.app/api/login",{
+            let response=await fetch(`${BASE_URL}/api/login`,{
                 method:'POST',
                 headers: {
                     'Content-Type':'application/json'
