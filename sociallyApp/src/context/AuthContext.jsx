@@ -10,11 +10,28 @@ const AuthContext=createContext()
 export default AuthContext;
 
 export const AuthProvider=({children})=>{
-    // const [token, settoken] = useState(null);
-    // const [user, setUser] = useState(null);
-    let [token,settoken]=useState(async ()=> await AsyncStorage.getItem('token')?await JSON.stringify(AsyncStorage.getItem('token')):null)
-    let [user,setUser]=useState(async ()=>await AsyncStorage.getItem('token')?await jwtDecode(AsyncStorage.getItem('token')):null)
+    
+    let [token,settoken]=useState(null)
+    let [user,setUser]=useState(null);
 
+    const isLoggedin=async ()=>{
+        try{
+        let accesstoken=await AsyncStorage.getItem('token')
+        settoken(accesstoken);
+        setUser(jwtDecode(accesstoken))
+        
+        }
+        catch(err){
+            console.log(err)
+        }
+        
+    }
+    useEffect(() => {
+      isLoggedin()
+    
+      
+    }, [])
+    
 
     let loginuser=async (username,password)=>{
         
@@ -37,6 +54,7 @@ export const AuthProvider=({children})=>{
                 setUser(jwtDecode(data.access))
                 
                 await AsyncStorage.setItem('token',JSON.stringify(data.access))
+                console.log("login successfull")
 
             }
             else{
@@ -46,9 +64,19 @@ export const AuthProvider=({children})=>{
             console.log("error: "+error)
         }
     }
+
+
+    let logoutUser=()=>{
+        settoken(null)
+        setUser(null)
+        AsyncStorage.removeItem('token')
+    }
+
     let contextData={
         user:user,
-        loginuser:loginuser
+        loginuser:loginuser,
+        isLoggedin:isLoggedin,
+        logoutUser:logoutUser
     }
     return(
         <AuthContext.Provider value={contextData}>
