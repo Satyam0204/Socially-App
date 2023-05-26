@@ -12,9 +12,8 @@ const Login = ({navigation}) => {
 
     useEffect(() => {
         if(user!=null){
-            navigation.navigate('Navbar')
-        }
-        
+            navigation.navigate('Navbar')  
+        }       
     }, [user]);
     
     return (
