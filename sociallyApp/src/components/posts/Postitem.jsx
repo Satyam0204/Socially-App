@@ -24,7 +24,7 @@ const Postitem = ({post}) => {
             </View>
           </View>
           <View style={{justifyContent: 'center', alignItems: 'center'}}>
-            <Image style={styles.image} source={{uri: post.image}} />
+            <Image style={styles.image} source={{uri: "https://cdn.pixabay.com/photo/2023/05/14/19/42/sky-7993656_1280.jpg"}} />
           </View>
           <View style={styles.postFooter}>
             <TouchableOpacity>
