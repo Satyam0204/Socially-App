@@ -38,7 +38,7 @@ export const AuthProvider=({children})=>{
 
         // console.log(BASE_URL)
         try {
-            AsyncStorage.clear()
+            // AsyncStorage.clear()
             // console.log("username: "+username+" password: "+password)
             let response=await fetch(`${BASE_URL}/api/login`,{
                 method:'POST',
@@ -74,6 +74,7 @@ export const AuthProvider=({children})=>{
 
     let contextData={
         user:user,
+        token:token,
         loginuser:loginuser,
         isLoggedin:isLoggedin,
         logoutUser:logoutUser
