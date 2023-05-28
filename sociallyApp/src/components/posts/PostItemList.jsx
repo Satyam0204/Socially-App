@@ -18,7 +18,7 @@ const PostItemList = () => {
     const getPosts = async()=>{
         
         if(token!=null){
-        const response=await fetch(BASE_URL+'/api/all_users_posts/',{
+        const response=await fetch(`${BASE_URL}/api/all_users_posts/`,{
             method:"GET",
             headers:{
                 'Content-Type':'application/json',
