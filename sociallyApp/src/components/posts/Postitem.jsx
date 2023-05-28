@@ -20,7 +20,7 @@ const Postitem = ({post}) => {
               <Text style={styles.postHeaderText}>{post.user}</Text>
             </View>
             <View style={styles.postBody}>
-              <Text style={{color: '#d0c1f7'}}>{post.body}</Text>
+              <Text style={{color: '#d0c1f7'}}>{post.desc}</Text>
             </View>
           </View>
           <View style={{justifyContent: 'center', alignItems: 'center'}}>
