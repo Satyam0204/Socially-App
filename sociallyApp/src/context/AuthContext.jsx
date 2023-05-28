@@ -16,9 +16,16 @@ export const AuthProvider=({children})=>{
 
     const isLoggedin=async ()=>{
         try{
-        let accesstoken=await AsyncStorage.getItem('token')
-        settoken(accesstoken);
-        setUser(jwtDecode(accesstoken))
+            if(await AsyncStorage.getItem('token')){
+
+                const accesstoken=(await AsyncStorage.getItem('token')).slice(1,-1)
+                settoken(accesstoken);
+                setUser(jwtDecode(accesstoken))
+            }
+            else{
+                settoken(null)
+                setUser(null)
+            }
         
         }
         catch(err){
@@ -36,10 +43,8 @@ export const AuthProvider=({children})=>{
     let loginuser=async (username,password)=>{
         
 
-        // console.log(BASE_URL)
         try {
-            // AsyncStorage.clear()
-            // console.log("username: "+username+" password: "+password)
+            await AsyncStorage.clear()
             let response=await fetch(`${BASE_URL}/api/login`,{
                 method:'POST',
                 headers: {
@@ -54,7 +59,6 @@ export const AuthProvider=({children})=>{
                 setUser(jwtDecode(data.access))
                 
                 await AsyncStorage.setItem('token',JSON.stringify(data.access))
-                console.log("login successfull")
 
             }
             else{
