@@ -2,7 +2,12 @@ import React from 'react';
 import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
+import Like from './Like';
+
 const Postitem = ({post}) => {
+
+
+
   return (
     <View>
       <View style={styles.postContainer} key={post.id}>
@@ -27,12 +32,8 @@ const Postitem = ({post}) => {
             <Image style={styles.image} source={{uri: "https://cdn.pixabay.com/photo/2023/05/14/19/42/sky-7993656_1280.jpg"}} />
           </View>
           <View style={styles.postFooter}>
-            <TouchableOpacity>
-              <Image
-                style={styles.postIcons}
-                source={require('../../Assets/like.png')}
-              />
-            </TouchableOpacity>
+
+            <Like post={post}/>
             <TouchableOpacity>
               <Image
                 style={styles.postIcons}
