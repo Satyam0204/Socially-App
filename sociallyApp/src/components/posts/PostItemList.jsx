@@ -37,7 +37,7 @@ const PostItemList = () => {
         getPosts()
 
         
-    },[]);
+    },[posts]);
     
   
     return (
