@@ -3,7 +3,8 @@ import React from 'react'
 import LinearGradient from 'react-native-linear-gradient'
 
 
-const Header = () => {
+
+const Header = ({navigation}) => {
   return (
     
     <View style={{backgroundColor:"#151129"}}>
@@ -14,13 +15,22 @@ const Header = () => {
 
       <Image style={styles.logo} source={require('../Assets/Logo.png')}/>
      </TouchableOpacity>
-     <View>
+     <View
+     style={{flexDirection:'row',right:0}}>
      <TouchableOpacity>
       <Image style={styles.headerEnd} source={require('../Assets/notification.png')}/>
       </TouchableOpacity>
+     <TouchableOpacity 
+      onPress={()=>[
+        navigation.navigate('Search')
+      ]}
+     >
+
+      <Image style={styles.headerEnd} source={require('../Assets/search.png')}/>
+      </TouchableOpacity>
      </View>
     </View>
-      
+  
     </View>
    
   )
@@ -49,7 +59,7 @@ const styles = StyleSheet.create({
       width:120,
     },
     headerEnd:{
-      marginHorizontal:10,
+      marginHorizontal:5,
       
       height:32,
 
