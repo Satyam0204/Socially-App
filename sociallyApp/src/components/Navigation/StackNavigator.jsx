@@ -3,6 +3,7 @@ import HomeScreen from '../../screens/HomeScreen';
 import Login from '../../screens/Login';
 import Navbar from './Navbar';
 import SearchScreen from '../../screens/SearchScreen';
+import UserProfileScreen from '../../screens/UserProfileScreen';
 
 const Stack = createStackNavigator();
 
@@ -33,6 +34,12 @@ function MyStack() {
         options={{headerShown: false}}
         component={SearchScreen}
         
+      />
+      <Stack.Screen
+        name="UserProfile"
+        options={{headerShown: false}}
+        component={UserProfileScreen}
+
       />
       
       
