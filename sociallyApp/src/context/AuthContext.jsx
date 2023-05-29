@@ -10,10 +10,8 @@ const AuthContext=createContext()
 export default AuthContext;
 
 export const AuthProvider=({children})=>{
-    
     let [token,settoken]=useState(null)
     let [user,setUser]=useState(null);
-
     const isLoggedin=async ()=>{
         try{
             if(await AsyncStorage.getItem('token')){
@@ -26,8 +24,7 @@ export const AuthProvider=({children})=>{
                 settoken(null)
                 setUser(null)
                 console.log("user not logged")
-            }
-        
+            }          
         }
         catch(err){
             console.log(err)
@@ -36,11 +33,8 @@ export const AuthProvider=({children})=>{
     }
     useEffect(() => {
       isLoggedin()
-    
       
-    }, [])
-    
-
+    }, [])   
     let loginuser=async (username,password)=>{
         
 
