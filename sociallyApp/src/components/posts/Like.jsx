@@ -5,7 +5,7 @@ import {View, StyleSheet,TouchableOpacity,Image} from 'react-native';
 import AuthContext from '../../context/AuthContext';
 const Like = ({post}) => {
     let {user,token}=useContext(AuthContext)
-    const [likes, setLikes] = useState(post.like.includes(!!user?user.username:null)?"liked":"unliked")
+    const [likes, setLikes] = useState(post.like.includes(user?user.username:null)?"liked":"unliked")
 
     let likePost=async ()=>{
         let response =await fetch(`${BASE_URL}/api/like/${post.id}/`,{
