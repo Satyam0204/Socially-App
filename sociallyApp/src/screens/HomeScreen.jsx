@@ -5,11 +5,11 @@ import LinearGradient from 'react-native-linear-gradient'
 import Header from '../components/Header'
 
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   return (
 
     <SafeAreaView  >
-      <Header/>
+      <Header navigation={navigation}/>
       <LinearGradient
       colors={['#151129', '#2e2033']}
       >
