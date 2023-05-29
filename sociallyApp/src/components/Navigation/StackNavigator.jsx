@@ -2,6 +2,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from '../../screens/HomeScreen';
 import Login from '../../screens/Login';
 import Navbar from './Navbar';
+import SearchScreen from '../../screens/SearchScreen';
 
 const Stack = createStackNavigator();
 
@@ -25,6 +26,12 @@ function MyStack() {
         name="Navbar"
         options={{headerShown: false}}
         component={Navbar}
+        
+      />
+      <Stack.Screen
+        name="Search"
+        options={{headerShown: false}}
+        component={SearchScreen}
         
       />
       
