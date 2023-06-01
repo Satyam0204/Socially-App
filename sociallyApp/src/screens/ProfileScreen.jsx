@@ -31,7 +31,7 @@ const ProfileScreen = ({navigation}) => {
         }
         getProfile()
         
-    },[]);
+    },);
     return (
         <View>
             <Text style={{color:"black"}}>{user?user.username:""}</Text>
