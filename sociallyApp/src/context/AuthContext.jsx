@@ -22,8 +22,7 @@ export const AuthProvider=({children})=>{
             }
             else{
                 settoken(null)
-                setUser(null)
-                console.log("user not logged")
+                setUser(null)               
             }          
         }
         catch(err){
