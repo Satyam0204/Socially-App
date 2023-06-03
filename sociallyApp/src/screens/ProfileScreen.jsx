@@ -1,8 +1,11 @@
 import React,{useState,useContext,useEffect} from 'react';
 import {BASE_URL} from '@env'
-import {View,Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {View,Text, StyleSheet,ImageBackground, Dimensions,TouchableOpacity} from 'react-native';
 import AuthContext from '../context/AuthContext';
 
+
+const screenHeight = Dimensions.get('window').height;
+const screenWidth = Dimensions.get('window').width;
 const ProfileScreen = ({navigation}) => {
     let {user,token}=useContext(AuthContext)
     let{logoutUser}=useContext(AuthContext)
@@ -34,9 +37,10 @@ const ProfileScreen = ({navigation}) => {
     },);
     return (
         <View>
-            <Text style={{color:"black"}}>{user?user.username:""}</Text>
-
+            <ImageBackground resizeMode="cover" style={styles.cover} source={{uri:"https://img.freepik.com/free-photo/shallow-focus-shot-young-attractive-male-posing-camera_181624-42193.jpg?w=740&t=st=1685709507~exp=1685710107~hmac=12453ec329112d6e965c48dc84c402314685858578331997a42484c51809900d"}}>
+          
         <View style={styles.stats}>
+            <Text style={styles.statsText}>{user?user.username:""}</Text>
             <Text style={styles.statsText}>Followers: {followers}</Text>
             <Text style={styles.statsText}>Following: {following}</Text>
         </View>
@@ -58,6 +62,7 @@ const ProfileScreen = ({navigation}) => {
                     }}>Logout</Text>
                 
             </TouchableOpacity>
+            </ImageBackground>
         </View>
     );
 }
@@ -65,7 +70,14 @@ const ProfileScreen = ({navigation}) => {
 
 const styles= StyleSheet.create({
     statsText:{
-        color:"black"
+        color:"white"
+    },
+    cover:{
+        height:screenHeight
+        
+    },
+    stats:{
+
     }
 })
 
