@@ -3,10 +3,12 @@ import React,{useState,useContext} from 'react';
 
 import {View, StyleSheet,TouchableOpacity,Image} from 'react-native';
 import AuthContext from '../../context/AuthContext';
+import { Text } from "react-native-paper";
+import { color } from "react-native-tailwindcss";
 const Like = ({post}) => {
     let {user,token}=useContext(AuthContext)
     const [likes, setLikes] = useState(post.like.includes(user?user.username:null)?"liked":"unliked")
-
+    
     let likePost=async ()=>{
         let response =await fetch(`${BASE_URL}/api/like/${post.id}/`,{
             method:"POST",
@@ -36,7 +38,7 @@ const Like = ({post}) => {
 
     
     return (
-        <View>
+        <View style={styles.container}>
             {likes==="liked"?
             <View>
 
@@ -63,14 +65,28 @@ const Like = ({post}) => {
                 </View>
                 
               }
+              <View>
+                <Text style={styles.footertext}>
+                    {post.like.length} 
+                </Text>
+              </View>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
+    container:{
+        flexDirection:"row"
+
+    },
     postIcons: {
         height: 20,
         width: 20,
+        
+      },
+      footertext:{
+        marginLeft:10,
+        color:"white"
       },
 })
 
