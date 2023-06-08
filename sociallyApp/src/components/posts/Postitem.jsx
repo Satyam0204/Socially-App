@@ -1,3 +1,4 @@
+import {BASE_URL} from '@env'
 import React from 'react';
 import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
@@ -29,7 +30,7 @@ const Postitem = ({post}) => {
             </View>
           </View>
           <View style={{justifyContent: 'center', alignItems: 'center'}}>
-            <Image style={styles.image} source={{uri: "https://cdn.pixabay.com/photo/2023/05/14/19/42/sky-7993656_1280.jpg"}} />
+            <Image style={styles.image} source={{uri: BASE_URL+post.image}} />
           </View>
           <View style={styles.postFooter}>
 
